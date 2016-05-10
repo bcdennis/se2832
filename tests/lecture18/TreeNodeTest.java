@@ -36,4 +36,5 @@ public class TreeNodeTest {
     public void testAddingOneValueIsInTree() throws Exception {
         assertTrue(root.contains("root"));
     }
+
 }
