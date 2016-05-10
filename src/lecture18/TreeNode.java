@@ -33,6 +33,33 @@ public class TreeNode<E> {
     }
 
     /**
+     * Checks to see if the value is contained in the tree.
+     *
+     * @param value the value to look for.
+     * @return true if it is contained.
+     */
+    public boolean contains(E value) {
+        boolean wasFound = false;
+
+        Stack<TreeNode<E>> stack = new Stack<>();
+        stack.push(this);
+
+        while (!stack.isEmpty()) {
+            TreeNode<E> node = stack.pop();
+
+            if (node.value.equals(value)) {
+                wasFound = true;
+                break;
+            }
+
+            for (TreeNode<E> t : node.children) {
+                stack.push(t);
+            }
+        }
+
+        return wasFound;
+    }
+    /**
      * Adds a child to the tree node.
      *
      * @param child the child to add.
